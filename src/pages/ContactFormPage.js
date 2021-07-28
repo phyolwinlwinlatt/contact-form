@@ -32,7 +32,8 @@ function ContactFormPage(props) {
             <Form.Group>
                <Form.Label>Name</Form.Label>
                <Form.Control
-                  type='text'
+                  type='text' 
+                  required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className='form-control-sm'
@@ -41,7 +42,8 @@ function ContactFormPage(props) {
             <Form.Group>
                <Form.Label>Email</Form.Label>
                <Form.Control
-                  type='email' required
+                  type='email' 
+                  required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder='name@test.com'
@@ -52,6 +54,7 @@ function ContactFormPage(props) {
                <Form.Label>Phone</Form.Label>
                <Form.Control
                   type='text'
+                  required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder='09'
