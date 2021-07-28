@@ -41,7 +41,7 @@ function ContactFormPage(props) {
             <Form.Group>
                <Form.Label>Email</Form.Label>
                <Form.Control
-                  type='email'
+                  type='email' required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder='name@test.com'
