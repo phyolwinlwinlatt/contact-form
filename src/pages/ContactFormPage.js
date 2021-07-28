@@ -2,8 +2,8 @@ import React, { useRef, useState } from 'react';
 import { Button, Col, Row, Form } from 'react-bootstrap';
 import Layout from '../commons/Layout';
 import classes from '../scss/Form.module.scss';
-import { navigate } from 'react-router-dom';
-
+//import { navigate } from 'react-router-dom';
+import { useHistory } from 'react-router';
 function ContactFormPage(props) {
    const state = props.location.state
    const [name, setName] = useState(state.name || '');
@@ -11,17 +11,20 @@ function ContactFormPage(props) {
    const [phone, setPhone] = useState(state.phone || '');
    const [subject, setSubject] = useState(state.subject || '');
    const [message, setMessage] = useState(state.message || '');
-
+   const history = new useHistory();
    function handleSubmit(e) {
       e.preventDefault();
 
-      navigate('/preview',{{
+      history.push({
+         pathname: '/preview',
+         state: {
          name,
          email,
          phone,
          subject,
-         message
-      }})
+         message,
+         }
+      })
       console.log({ name, email, phone, subject, message });
    }
 

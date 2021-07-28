@@ -2,19 +2,24 @@ import React from 'react';
 import { Col, Row, Table, Button, ButtonGroup } from 'react-bootstrap';
 import Layout from '../commons/Layout';
 import classes from '../scss/Table.module.scss';
-import { navigate } from 'react-router-dom';
+//import { navigate } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
 function FormDataPreviewPage(props) {
    const { name, email, phone, subject, message } = props.location.state;
+   const history = new useHistory();
 
    function handleCancel(e) {
-      navigate('/', {{
+      history.push({
+         pathname: '/preview',
+         state: {
          name,
          email,
          phone,
          subject,
-         message
-      }})
+         message,
+         }
+      })
 }
 
 function handleSave() {
