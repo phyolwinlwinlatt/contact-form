@@ -2,8 +2,9 @@ import React from 'react';
 import { Alert, Button } from 'react-bootstrap';
 import Layout from '../commons/Layout';
 import classes from '../scss/Alert.module.scss'
-
+import {useHistory} from 'react-router-dom'
 function SuccessPage() {
+   const history = useHistory();
    return (
       <Layout>
          <Alert variant='primary' className={classes.alert}>
@@ -14,7 +15,7 @@ function SuccessPage() {
          <div style={{marginBottom:'20px'}}>
             <Button
                type='button'
-               onClick={() => { }}
+               onClick={() => history.push('/')}
                variant='primary'
             >Next Contact
             </Button>
