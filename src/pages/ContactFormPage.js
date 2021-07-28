@@ -5,11 +5,11 @@ import classes from '../scss/Form.module.scss';
 import { useHistory } from 'react-router-dom';
 function ContactFormPage(props) {
    const history =  useHistory();
-   const [name, setName] = useState(history.state.name || '');
-   const [email, setEmail] = useState(history.state.email || '');
-   const [phone, setPhone] = useState(history.state.phone || '');
-   const [subject, setSubject] = useState(history.state.subject || '');
-   const [message, setMessage] = useState(history.state.message || '');
+   const [name, setName] = useState(history.state?.name || '');
+   const [email, setEmail] = useState(history.state?.email || '');
+   const [phone, setPhone] = useState(history.state?.phone || '');
+   const [subject, setSubject] = useState(history.state?.subject || '');
+   const [message, setMessage] = useState(history.state?.message || '');
    function handleSubmit(e) {
       e.preventDefault();
 
