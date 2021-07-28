@@ -1,13 +1,12 @@
 import React from 'react';
-import { Col, Row, Table, Button, ButtonGroup } from 'react-bootstrap';
+import { Table, Button, ButtonGroup } from 'react-bootstrap';
 import Layout from '../commons/Layout';
 import classes from '../scss/Table.module.scss';
-//import { navigate } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 
 function FormDataPreviewPage(props) {
    const { name, email, phone, subject, message } = props.location.state;
-   const history = new useHistory();
+   const history =  useHistory();
 
    function handleCancel(e) {
       history.push({
@@ -28,8 +27,9 @@ function handleSave() {
    localStorage.setItem('phone', phone)
    localStorage.setItem('subject', subject)
    localStorage.setItem('message', message)
-
-   navigate('/success')
+   history.push({
+      pathname: '/success'
+   })
 }
 
 return (

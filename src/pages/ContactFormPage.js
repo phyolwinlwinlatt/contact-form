@@ -1,17 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, {  useState } from 'react';
 import { Button, Col, Row, Form } from 'react-bootstrap';
 import Layout from '../commons/Layout';
 import classes from '../scss/Form.module.scss';
-//import { navigate } from 'react-router-dom';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 function ContactFormPage(props) {
-   const state = props.location.state
-   const [name, setName] = useState(state.name || '');
-   const [email, setEmail] = useState(state.email || '');
-   const [phone, setPhone] = useState(state.phone || '');
-   const [subject, setSubject] = useState(state.subject || '');
-   const [message, setMessage] = useState(state.message || '');
-   const history = new useHistory();
+   const history =  useHistory();
+   const [name, setName] = useState(history.state.name || '');
+   const [email, setEmail] = useState(history.state.email || '');
+   const [phone, setPhone] = useState(history.state.phone || '');
+   const [subject, setSubject] = useState(history.state.subject || '');
+   const [message, setMessage] = useState(history.state.message || '');
    function handleSubmit(e) {
       e.preventDefault();
 
